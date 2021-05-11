@@ -1,7 +1,14 @@
-import Banner from '../components/Banner'
+import Banner from '../components/Banner';
+import ShoppingList from '../components/ShoppingList';
+import Cart from '../components/Cart';
 
 function App() {
-  return <Banner />
+  return (<div>
+      <Banner />
+      <ShoppingList />
+      <Cart />
+    </div>
+    )
 }
 
 export default App;
