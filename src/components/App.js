@@ -6,8 +6,9 @@ import ShoppingList from './ShoppingList'
 import { useState } from 'react'
 import '../styles/Layout.css'
 function App() {
-
-	const [cart, updateCart] = useState([])
+	let cartStorage = localStorage.getItem('cart');
+	cartStorage = JSON.parse(cartStorage);
+	const [cart, updateCart] = useState(cartStorage)
 	return (
 		<div>
 			<Banner>
