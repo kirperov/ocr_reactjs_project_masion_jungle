@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { plantList } from '../datas/plantList';
 import  PlantItem from './PlantItem';
 import '../styles/ShoppingList.css';
@@ -9,6 +9,9 @@ function ShoppingList({ cart, updateCart }) {
 	const [activeCategory, setActiveCategory] = useState('');
 	const categories = plantList.reduce((previous, currentPlant) =>
     previous.includes(currentPlant.category) ? previous : previous.concat(currentPlant.category), []);
+	useEffect(() => {
+		localStorage.setItem('cart', JSON.stringify(cart));
+	}, [cart, updateCart])
 	function addToCart(name, price) {
 		const currentPlantSaved = cart.find((plant) => plant.name === name)
 		if (currentPlantSaved) {
